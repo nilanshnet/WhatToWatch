@@ -22,7 +22,7 @@ Our goal is to minimize the effort of the user and provide them with all the afo
 
 ### Architecture Design
 
-<img width="468" alt="architecturediag" src="https://user-images.githubusercontent.com/26367904/123538222-69115b00-d751-11eb-84b0-bd7b11949b7a.png">
+<img alt="architecturediag" src="https://user-images.githubusercontent.com/26367904/123538222-69115b00-d751-11eb-84b0-bd7b11949b7a.png">
 
 ### AWS Services used
 -   **Amplify**: Amplify is used to host the web application and deployment of cognito as well as the front-end code, which is developed using Vue.js
