@@ -56,61 +56,61 @@ API gateway is used and URL the path in it depends upon the application page and
 
 ### Search Page  
 #### Trending and Recommendation
-1.  API Call: **/recommend**
-    Method: GET
-    Lambda: ***load_search***
-    Purpose: Returns recommendations based on AWS Personalize and User preference, along with the trending movies/tv shows for search page
+1.  API Call: **/recommend**  
+    Method: GET  
+    Lambda: ***load_search***  
+    Purpose: Returns recommendations based on AWS Personalize and User preference, along with the trending movies/tv shows for search page  
 
 #### Search results for the query
-2.  API Call: **/search**
-    Method: GET
-    Lambda: ***lf3_search***
-    Purpose: returns TV shows and movies based on title or genre searched in the search box. This is done using the ElasticSearch service and dynamo DB
+2.  API Call: **/search**  
+    Method: GET  
+    Lambda: ***lf3_search***  
+    Purpose: returns TV shows and movies based on title or genre searched in the search box. This is done using the ElasticSearch service and dynamo DB  
 
 ### Social - Friends Page 
-1.  API Call: **/friend**
-    Method: GET
-    Lambda: ***load_friend***
-    Purpose: Loads the friend list for the friends page
+1.  API Call: **/friend**  
+    Method: GET  
+    Lambda: ***load_friend***  
+    Purpose: Loads the friend list for the friends page  
 
-2.  API Call: **/friend/add**
-    Method: POST
-    Lambda: ***lf4_addfriend***
-    Purpose: Adds a new friend to the 'friends' table
+2.  API Call: **/friend/add**  
+    Method: POST  
+    Lambda: ***lf4_addfriend***  
+    Purpose: Adds a new friend to the 'friends' table  
 
-3.  API Call: **/friend/remove**
-    Method: POST
-    Lambda: ***lf4_removefriend***
-    Purpose: Removes the friend from the 'friends' table
+3.  API Call: **/friend/remove**  
+    Method: POST  
+    Lambda: ***lf4_removefriend***  
+    Purpose: Removes the friend from the 'friends' table  
 
 ### Social - Events Page 
-1.  API Call: **/social**
-    Method: GET
-    Lambda: ***load_social***
-    Purpose: Load your friends' watching list and events list
+1.  API Call: **/social**  
+    Method: GET  
+    Lambda: ***load_social***  
+    Purpose: Load your friends' watching list and events list  
 
-2.  API Call: **/social/createevent**
-    Method: POST
-    Lambda: ***lf5_eventcreate***
-    Purpose: Add a record for every invitee into event table with the status as 'pending' and with the status as 'accepted' for the creator and adds these details to SQS
+2.  API Call: **/social/createevent**  
+    Method: POST  
+    Lambda: ***lf5_eventcreate***  
+    Purpose: Add a record for every invitee into event table with the status as 'pending' and with the status as 'accepted' for the creator and adds these details to SQS  
 
-3.  API Call: **/social/createstatus**
-    Method: POST
-    Lambda: ***lf5_createstatus***
-    Purpose: Updates records in invitation with the status like accepted, declines, etc
+3.  API Call: **/social/createstatus**  
+    Method: POST  
+    Lambda: ***lf5_createstatus***  
+    Purpose: Updates records in invitation with the status like accepted, declines, etc  
 
 ### General Functions using lambdas - NOT API calls 
-1.  Lambda: ***data_load***
-    Purpose: Scrapes data from the 'moviedb' upon nightly trigger from Cloudwatch and loads into Dynamodb to keep the movie and TV show dataset up to date
+1.  Lambda: ***data_load***  
+    Purpose: Scrapes data from the 'moviedb' upon nightly trigger from Cloudwatch and loads into Dynamodb to keep the movie and TV show dataset up to date  
 
-2.  Lambda: ***add_user***
-    Purpose: Adds user data to the user table upon invocation of the post authentication trigger in the Amazon Cognito service
+2.  Lambda: ***add_user***  
+    Purpose: Adds user data to the user table upon invocation of the post authentication trigger in the Amazon Cognito service  
 
-3.  Lambda: ***load_trending***
-    Purpose: Loads trending movies/shows in the database from 'moviedb' api 
+3.  Lambda: ***load_trending***  
+    Purpose: Loads trending movies/shows in the database from 'moviedb' api   
 
-4.  Lambda: ***lf6_notification***
-    Purpose: Polls queued events from SQS and sends email notification to users through SES
+4.  Lambda: ***lf6_notification***  
+    Purpose: Polls queued events from SQS and sends email notification to users through SES  
 
 ## Data Source
 The data is scraped from the [moviedb api](https://www.themoviedb.org/documentation/api) by a lambda function triggered using the Cloudwatch Event and then Loaded into the DynamoDb table. The following data gets scraped from the api:
