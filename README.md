@@ -37,12 +37,12 @@ Schema:  id, type, title, year, genre, episodes, poster_url, overview
 -   **SNS**: SNS is used to notify users via email, about their watch party invitation
 -   **RDS**: Web application backend data is stored in various RDS tables built on MySQL
     Schema:
-    user - <ins>userid</ins>, name, email
-    watchnow - userid, id, name, type, poster_path, episode, air_date
-    watchlist - userid, id, type, poster_path, release_date
-    friend - userid, friendid, friendname
-    event - eventid, description, time, invitee, creator url, status
-    preference - userid, genre
-	Note: Primary Keys are <ins>underlined<ins>
+    user - <ins>userid<ins>, name, email
+    watchnow - <ins>userid<ins>, <ins>id<ins>, name, type, poster_path, episode, air_date
+    watchlist - <ins>userid<ins>, <ins>id<ins>, <ins>type<ins>, poster_path, release_date
+    friend - <ins>userid<ins>, <ins>friendid<ins>, friendname
+    event - <ins>eventid<ins>, description, time, invitee, creator url, status
+    preference - <ins>userid<ins>, <ins>genre<ins>
+	***Note***: Primary Keys are <ins>underlined<ins>
 -   **S3**: stores historical data for fine tuning the AWS Personalise ML model
 -   **Personalise**: Real-time recommendations are provided using AWS Personalise   
