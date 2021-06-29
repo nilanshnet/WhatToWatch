@@ -7,54 +7,54 @@ WhatToWatch application has a scalable and resilient microservices architecture 
 ## Lambda Functions and associated API calls
 API gateway is used and URL the path in it depends upon the application page and API calls based on their names. Details are given for the path and calls associated with each page within the application.
 
-### Preference(s) page
-1.  API Call: **/account**
-    Method: GET
-    Lambda: ***load_account***
-    Purpose: Loads the User's details and preferences
+### Preference(s) page  
+1.  API Call: **/account**  
+    Method: GET  
+    Lambda: ***load_account***  
+    Purpose: Loads the User's details and preferences  
 
-2.  API Call: **/account/update**
-    Method: POST
-    Lambda: ***lf1_update***
-    Purpose: Updates the details in the preference table
+2.  API Call: **/account/update**  
+    Method: POST  
+    Lambda: ***lf1_update***  
+    Purpose: Updates the details in the preference table  
 
-### Home Page 
-1.  API Call: **/watch**
-    Method: GET
-    Lambda: ***load_home***
-    Purpose: Loads 'Watchlist' and 'Watchnow' features for the home page
+### Home Page   
+1.  API Call: **/watch**  
+    Method: GET  
+    Lambda: ***load_home***  
+    Purpose: Loads 'Watchlist' and 'Watchnow' features for the home page  
 
-2.  API Call: **/watch/addlist**
-    Method: POST
-    Lambda: ***lf2_addlist***
-    Purpose: Adds TVshow/movie to the 'Watchlist'
+2.  API Call: **/watch/addlist**  
+    Method: POST  
+    Lambda: ***lf2_addlist***  
+    Purpose: Adds TVshow/movie to the 'Watchlist'  
 
-3.  API Call: **/watch/removelist**
-    Method: POST
-    Lambda: ***lf2_removelist***
-    Purpose: Removes the TVshow/movie from the 'Watchlist'
+3.  API Call: **/watch/removelist**  
+    Method: POST  
+    Lambda: ***lf2_removelist***  
+    Purpose: Removes the TVshow/movie from the 'Watchlist'  
 
-4.  API Call: **/watch/addnow**
-    Method: POST
-    Lambda: ***lf2_addnow***
-    Purpose: Adds a TVshow/movie records to 'Watchnow' and removes from the 'Watchlist'
+4.  API Call: **/watch/addnow**  
+    Method: POST  
+    Lambda: ***lf2_addnow***  
+    Purpose: Adds a TVshow/movie records to 'Watchnow' and removes from the 'Watchlist'  
 
-5.  API Call: **/watch/donenow**
-    Method: POST
-    Lambda: ***lf2_donenow***
-    Purpose: Removes completed TV show episodes or movies from the 'Watchnow'
+5.  API Call: **/watch/donenow**  
+    Method: POST  
+    Lambda: ***lf2_donenow***  
+    Purpose: Removes completed TV show episodes or movies from the 'Watchnow'  
 
-6.  API Call: **/watch/removenow**
-    Method: POST
-    Lambda: ***lf2_removenow***
-    Purpose: Removes all episodes/movie from 'Watchnow'
+6.  API Call: **/watch/removenow**  
+    Method: POST  
+    Lambda: ***lf2_removenow***  
+    Purpose: Removes all episodes/movie from 'Watchnow'  
 
-7.  API Call: **/rating**
-    Method: POST
-    Lambda: ***update_model***
-    Purpose: Appends the rating for a TV show or a movie that a user has marked as watched to the interaction dataset on AWS Personalize to re-train the model and provide real-time recommendations
+7.  API Call: **/rating**  
+    Method: POST  
+    Lambda: ***update_model***  
+    Purpose: Appends the rating for a TV show or a movie that a user has marked as watched to the interaction dataset on AWS Personalize to re-train the model and provide real-time recommendations  
 
-### Search Page 
+### Search Page  
 #### Trending and Recommendation
 1.  API Call: **/recommend**
     Method: GET
@@ -113,7 +113,7 @@ API gateway is used and URL the path in it depends upon the application page and
     Purpose: Polls queued events from SQS and sends email notification to users through SES
 
 ## Data Source
-The data is scraped from the moviedb api by a lambda function triggered by Cloudwatch Event and Loaded into the DynamoDb table. The following data gets scraped from the api:
+The data is scraped from the [moviedb api](https://www.themoviedb.org/documentation/api) by a lambda function triggered using the Cloudwatch Event and then Loaded into the DynamoDb table. The following data gets scraped from the api:
 -   Movie and TV Show Details and Release Dates
 -   Trending Movie and TV Shows
 
