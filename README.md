@@ -18,7 +18,7 @@ Our goal is to minimize the effort of the user and provide them with all the afo
 -   Plan watch parties and invite friends (through joining link). Invitees receive event links through email and can choose to accept or decline from the social page.
 
 
-## How is it designed and built? 
+## What is the design and what all resources are needed? 
 
 ### Architecture Design
 
