@@ -7,12 +7,12 @@ Install the npm packages
 ```
 npm install
 ```
-Indstall AWS Amplify dependencies
+Install AWS Amplify dependencies
 ```
 npm i --save aws-amplify aws-amplify-vue
 
 ```
-import the AWS cognito profile as well on your local 
+Finally, import the AWS cognito profile as well on your local 
 
 ### Compiles and hot-reloads for development
 ```
